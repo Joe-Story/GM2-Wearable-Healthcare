@@ -18,6 +18,7 @@ float bpmsum = 0;
 float avbpm = 0;
 float spo2sum = 0;
 float avspo2 = 0;
+int sensorValue = 0;
 
 //TEMPERATURE SENSOR STARTUP
 void getTemp(float * t, char pin, int Beta)
@@ -170,7 +171,7 @@ void loop() {
 //    SpO2 = result.SaO2;
 
     
-  delay(10);  
+  delay(10);  //40 for wrist, 10 for finger
   
   }
 
@@ -234,14 +235,13 @@ void loop() {
      Serial.print(average_re); Serial.print("Average Rectal deg. C     \n\n");
   */
   
-      //Serial.print("Current Micro-Climate  deg. C      \n"); 
-      Serial.print(temp_mc[1]);//Serial.print(" \n");
-      Serial.print(" ");
-     // Serial.print("Current Insulated Skin  deg. C      \n"); 
-      Serial.print(temp_skin[1]);//Serial.print(" \n");
-      Serial.print(" ");
-     // Serial.print("Current Core  deg. C      \n"); 
+      Serial.print("Current Micro-Climate  deg. C: "); 
+      Serial.println(temp_mc[1]);//Serial.print(" \n");
+      Serial.print("Current Insulated Skin  deg. C: "); 
+      Serial.println(temp_skin[1]);//Serial.print(" \n");
+      Serial.print("Current Core  deg. C: "); 
       Serial.println(temp_re);//Serial.print(" \n");
+      Serial.println("");
   
   
       //Serial.print(previous_temp_skin[0]);Serial.print(" "); Serial.print(previous_temp_skin[1]);Serial.print(" "); Serial.print(previous_temp_skin[2]);Serial.print(" "); Serial.print(previous_temp_skin[3]);Serial.print(" "); Serial.print(previous_temp_skin[4]);
@@ -275,8 +275,11 @@ void loop() {
   }
   
   else if(millis()<60000) {
-    Serial.println("Blood Pressure Calculation");
+    Serial.println("Calculations");
     delay(2000);
+    //sensorValue = analogRead(A5);
+    //Serial.println(sensorValue);
+    //delay(4);
   }
 
       

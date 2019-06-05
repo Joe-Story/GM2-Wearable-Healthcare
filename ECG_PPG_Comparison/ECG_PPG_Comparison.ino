@@ -2,7 +2,7 @@
 MAX30100* pulseOxymeter;
 float dcFiltIR;
 
-int sensorPin = A3;
+int sensorPin = A0;
 int ledPin = 13;
 int sensorValue = 0;
 int ecgarray[500];
@@ -21,15 +21,16 @@ void setup() {
 
 void loop() {
 
-  for(i = 0; i<500; i = i+1) {
+  for(i = 0; i<2000; i = i+1) {
     sensorValue = analogRead(sensorPin);
-    Serial.println(sensorValue);
+    //Serial.println(sensorValue);
     ecgarray[i] = sensorValue;
     
     pulseoxymeter_t result = pulseOxymeter->update();
     dcFiltIR = -(result.dcFilteredIR);
     ppgarray[i] = dcFiltIR;
     Serial.println(dcFiltIR);
+    Serial.println(sensorValue);
     Serial.println(millis());
     
     delay(4);

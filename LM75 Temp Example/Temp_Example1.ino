@@ -1,3 +1,5 @@
+//Authors: Joseph Story
+
 #define VERSION "1.1"
  
 #include <inttypes.h>

@@ -1,3 +1,5 @@
+//Authors: Joseph Story, Ana-Maria Marcu, Rose Humphry, Vidya Kanakaratnam
+
 //HEART RATE SENSOR STARTUP
 #include "MAX30100.h"
 

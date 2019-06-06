@@ -1,3 +1,5 @@
+//Authors: Joseph Story
+
 #include "MAX30100.h"
 
 MAX30100* pulseOxymeter;
